@@ -3,3 +3,9 @@
 ################################################################################
 
 /SuitSupply.CodingTest.ProductCatalog/.vs
+/SuitSupply.CodingTest.ProductCatalog/API/SuitSupply.CodingTest.ProductCatalog.WebApi/Logs
+/SuitSupply.CodingTest.ProductCatalog/packages
+/SuitSupply.CodingTest.ProductCatalog/Tests/SuitSupply.CodingTest.ProductCatalog.WebApi.Test/obj/Debug
+/SuitSupply.CodingTest.ProductCatalog/Tests/SuitSupply.CodingTest.ProductCatalog.WebApi.Test/bin/Debug
+/SuitSupply.CodingTest.ProductCatalog/API/SuitSupply.CodingTest.ProductCatalog.WebApi/bin
+/SuitSupply.CodingTest.ProductCatalog/API/SuitSupply.CodingTest.ProductCatalog.WebApi/obj/Debug

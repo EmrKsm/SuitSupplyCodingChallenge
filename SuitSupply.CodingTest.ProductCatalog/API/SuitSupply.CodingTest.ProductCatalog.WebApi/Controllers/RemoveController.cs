@@ -1,4 +1,5 @@
 ﻿using log4net;
+using SuitSupply.CodingTest.ProductCatalog.WebApi.Initializers;
 using SuitSupply.CodingTest.ProductCatalog.WebApi.Models;
 using System;
 using System.Net;
@@ -10,7 +11,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Controllers
     public class RemoveController : ApiController
     {
         //Logger
-        private static readonly ILog _logger = LogManager.GetLogger(Environment.MachineName);
+        private static readonly ILog _logger = LogManager.GetLogger(WebApiSettings.Instance.Log4NetName);
 
         [Route("api/Remove/{id:int}")]
         [HttpPost]

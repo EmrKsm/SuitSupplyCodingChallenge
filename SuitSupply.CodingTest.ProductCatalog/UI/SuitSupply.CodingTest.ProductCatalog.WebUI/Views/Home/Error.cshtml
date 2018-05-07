@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/Page_Layout.cshtml";
+}
+
+<h2>Error</h2>
+
+<h3><i class="fa fa-warning text-red"></i> Oops! Something went wrong.</h3>
+<p>
+    @ViewBag.ErrorMessage
+</p>
+
+
+<div class="jumbotron">
+    <h1 class="display-1">@ViewBag.ErrorCode</h1>
+    <p>@ViewBag.ErrorMessage</p>
+</div>
+

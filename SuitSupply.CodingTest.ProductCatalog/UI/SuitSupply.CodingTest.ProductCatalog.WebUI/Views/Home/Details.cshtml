@@ -1,0 +1,46 @@
+﻿@model SuitSupply.CodingTest.ProductCatalog.WebUI.Models.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Page_Layout.cshtml";
+}
+
+@{
+    string imgSrc = "";
+    if (Model.Photo != null)
+    {
+        var base64 = Convert.ToBase64String(Model.Photo, 0, Model.Photo.Length);
+        imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+    }
+    else
+    {
+        imgSrc = "../../Content/images/imageNotFound.jpg";
+    }
+}
+<div class="row">
+    <div class="col-md-6">
+        <img class="img-fluid" src="@imgSrc" alt="">
+    </div>
+    <div class="col-md-4">
+        <h3 class="my-3">@Model.Name</h3>
+        <b>Price: </b><span>@Model.Price</span>
+        <br />
+        <b>Last Update: </b><span>@Model.LastUpdated.ToShortDateString() at @Model.LastUpdated.ToShortTimeString()</span>
+        <br />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <a href="@Url.Action("Edit", "Home", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <form action="@Url.Action("Remove", "Home")" method="POST">
+                        <input type="hidden" name="id" value="@Model.Id">
+                        <input type="submit" class="btn btn-primary" value="Remove" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->

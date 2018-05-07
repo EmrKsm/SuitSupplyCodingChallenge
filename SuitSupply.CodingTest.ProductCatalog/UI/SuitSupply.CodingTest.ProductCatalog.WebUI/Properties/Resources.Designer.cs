@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SuitSupply.CodingTest.ProductCatalog.WebApi {
+namespace SuitSupply.CodingTest.ProductCatalog.WebUI.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class SettingsKey {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal SettingsKey() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SuitSupply.CodingTest.ProductCatalog.WebApi.SettingsKey", typeof(SettingsKey).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SuitSupply.CodingTest.ProductCatalog.WebUI.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,29 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ProductDbConnectionString.
+        ///   Looks up a localized string similar to Log4NetName.
         /// </summary>
-        internal static string ProductDbConnectionString {
+        internal static string Log4NetName {
             get {
-                return ResourceManager.GetString("ProductDbConnectionString", resourceCulture);
+                return ResourceManager.GetString("Log4NetName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ProductsInHome.
+        /// </summary>
+        internal static string ProductsInHome {
+            get {
+                return ResourceManager.GetString("ProductsInHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to APIUrl.
+        /// </summary>
+        internal static string ProductWebApiUrl {
+            get {
+                return ResourceManager.GetString("ProductWebApiUrl", resourceCulture);
             }
         }
     }

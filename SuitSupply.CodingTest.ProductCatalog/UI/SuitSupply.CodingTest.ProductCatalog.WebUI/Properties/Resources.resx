@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ProductDbConnectionString" xml:space="preserve">
-    <value>ProductDbConnectionString</value>
+  <data name="ProductsInHome" xml:space="preserve">
+    <value>ProductsInHome</value>
+  </data>
+  <data name="ProductWebApiUrl" xml:space="preserve">
+    <value>APIUrl</value>
+  </data>
+  <data name="Log4NetName" xml:space="preserve">
+    <value>Log4NetName</value>
   </data>
 </root>

@@ -12,7 +12,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Models
     {
         #region Constants
         //Logger
-        private static readonly ILog _logger = LogManager.GetLogger(Environment.MachineName);
+        private static readonly ILog _logger = LogManager.GetLogger(WebApiSettings.Instance.Log4NetName);
         //DB context
         private readonly ProductsContext _context = new ProductsContext(WebApiSettings.Instance.ProductsDbConnectionString); 
         #endregion
@@ -96,6 +96,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Models
                 {
                     try
                     {
+                        product.LastUpdated = DateTime.Now;
                         _context.Product.Add(product);
                         _context.SaveChanges();
                         _logger.Info($"Product with name {product.Name} added.");
@@ -143,9 +144,10 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Models
                         if (!CheckIfTwoProductsEqual(selectedProduct, product))
                         {
                             selectedProduct.Name = product.Name;
-                            selectedProduct.Photo = product.Photo;
                             selectedProduct.Price = product.Price;
-                            selectedProduct.LastUpdated = product.LastUpdated;
+                            if(product.Photo != null)
+                                selectedProduct.Photo = product.Photo;
+                            selectedProduct.LastUpdated = DateTime.Now;
                             _context.SaveChanges();
                             _logger.Info($"Product with id {id} edited.");
                             productDbTransaction.Commit();

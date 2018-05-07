@@ -1,36 +1,38 @@
 ﻿using log4net;
-using SuitSupply.CodingTest.ProductCatalog.WebApi.Properties;
+using SuitSupply.CodingTest.ProductCatalog.WebUI.Properties;
 using System;
 using System.Collections.Specialized;
 using System.Configuration;
 
 namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Initializers
 {
-    public class WebApiSettings
+    public class WebUISettings
     {
         #region Fields
-        private static readonly ILog _logger = LogManager.GetLogger(SettingsKey.Log4NetName);
-        private string _productsDbConnectionString = "";
+        private static readonly ILog _logger = LogManager.GetLogger(Resources.Log4NetName);
+        private string _productNumberInHome = "";
+        private string _productWebApiUrl = "";
         private string _log4NetName = "";
-        private static WebApiSettings _instance = null;
+        private static WebUISettings _instance = null;
         private static readonly object _lockObj = new object();
         #endregion
 
         #region Properties
         protected static ILog Logger { get { return _logger; } }
-        public string ProductsDbConnectionString { get { return _productsDbConnectionString; } }
+        public string ProductNumberInHome { get { return _productNumberInHome; } }
+        public string ProductWebApiUrl { get { return _productWebApiUrl; } }
         public string Log4NetName { get { return _log4NetName; } }
         /// <summary>
         /// Initialize singleton object to read config file
         /// </summary>
-        public static WebApiSettings Instance
+        public static WebUISettings Instance
         {
             get
             {
                 lock (_lockObj)
                 {
                     if (_instance == null)
-                        _instance = new WebApiSettings();
+                        _instance = new WebUISettings();
                     return _instance;
                 }
             }
@@ -38,7 +40,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Initializers
         #endregion
 
         #region Constructors
-        private WebApiSettings()
+        private WebUISettings()
         {
             LoadSettings();
         }
@@ -47,8 +49,9 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Initializers
         private void LoadSettings()
         {
             NameValueCollection appSettings = ConfigurationManager.AppSettings;
-            SetSettingAs<string>(appSettings, SettingsKey.ProductDbConnectionString, ref _productsDbConnectionString);
-            SetSettingAs<string>(appSettings, SettingsKey.Log4NetName, ref _log4NetName);
+            SetSettingAs<string>(appSettings, Resources.ProductsInHome, ref _productNumberInHome);
+            SetSettingAs<string>(appSettings, Resources.ProductWebApiUrl, ref _productWebApiUrl);
+            SetSettingAs<string>(appSettings, Resources.Log4NetName, ref _log4NetName);
         }
 
         #region Helpers

@@ -75,7 +75,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebUI.Controllers
                         productList = JsonConvert.DeserializeObject<List<Product>>(response);
                     }
                     if (!String.IsNullOrEmpty(SearchString))
-                        productList = productList.Where(p => p.Name.Contains(SearchString)).ToList<Product>();
+                        productList = productList.Where(p => p.Name.ToLower().Contains(SearchString.ToLower())).ToList<Product>();
                     ViewBag.ProductList = productList;
                     TempData["ProductList"] = productList;
                     int pageSize = 6;

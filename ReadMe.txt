@@ -15,3 +15,5 @@ Make sure Web API runs on 2220 port and Web UI is on 2221.
 
 Git repository;
 https://github.com/EmrKsm/SuitSupplyCodingChallenge.git
+
+Before start debugging set startup project as multiple from solution properties. You can apply this setting with looking StartupProjectConfig.png file.

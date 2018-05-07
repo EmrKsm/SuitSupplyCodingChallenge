@@ -27,7 +27,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test
             }
 
             [Test]
-            public void AddFromProduct_ShouldAddProductAndReturnTrue()
+            public void Product_AddFromProduct_ShouldAddProductAndReturnTrue()
             {
                 byte[] arr;
                 using (MemoryStream ms = new MemoryStream())
@@ -55,7 +55,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test
             }
 
             [Test]
-            public void GetAllProductsFromProduct_ShouldReturnAllProducts()
+            public void Product_GetAllProductsFromProduct_ShouldReturnAllProducts()
             {
                 var productList = productInterface.GetAllProducts();
                 Assert.NotNull(productList);
@@ -88,7 +88,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test
 
             [TestCase(3)]
             [TestCase(4)]
-            public void RemoveFromProduct_ShouldRemoveProductAndReturnTrue(int id)
+            public void Product_RemoveFromProduct_ShouldRemoveProductAndReturnTrue(int id)
             {
                 var result = productInterface.RemoveProduct(id);
                 Assert.AreEqual(true,result);
@@ -113,7 +113,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test
             }
 
             [Test]
-            public void EditFromProduct_ShouldEditProductsPropertiesAndReturnTrue()
+            public void Product_EditFromProduct_ShouldEditProductsPropertiesAndReturnTrue()
             {
                 int id = 2;
                 byte[] arr;

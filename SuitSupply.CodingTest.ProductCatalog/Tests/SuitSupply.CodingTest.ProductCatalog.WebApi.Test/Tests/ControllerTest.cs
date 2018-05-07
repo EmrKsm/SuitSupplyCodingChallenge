@@ -6,6 +6,7 @@ using NUnit.Framework;
 using SuitSupply.CodingTest.ProductCatalog.WebApi.Models;
 using SuitSupply.CodingTest.ProductCatalog.WebApi.Controllers;
 using System.Web.Http.Results;
+using System.Net;
 
 namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test.Add
 {
@@ -29,7 +30,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test.Add
             }
 
             [Test]
-            public void AddFromController_ShouldAddProductAndReturnTrue()
+            public void Controller_AddFromController_ShouldAddProductAndReturnTrue()
             {
                 byte[] arr;
                 using (MemoryStream ms = new MemoryStream())
@@ -39,7 +40,16 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test.Add
                     arr = ms.ToArray();
                 }
                 Product product = new Product { Name = "Yellow suit2112121212", Photo = arr, Price = 11221.0, LastUpdated = DateTime.Now };
-                Assert.IsInstanceOf<OkResult>(controller.Post(product).Result);
+
+                var result = controller.Post(product).Result;
+
+                if (result.GetType() == typeof(OkResult))
+                    Assert.Pass();
+                else
+                {
+                    var contentResult = (NegotiatedContentResult<string>)result;
+                    Assert.Fail(contentResult.Content);
+                }
             }
         }
 
@@ -61,7 +71,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test.Add
             }
 
             [Test]
-            public void GetAllProductsFromController_ShouldReturnAllProducts()
+            public void Controller_GetAllProductsFromController_ShouldReturnAllProducts()
             {
                 var productListContent = ((OkNegotiatedContentResult<List<IProduct>>)controller.Get().Result).Content ;
                 Assert.NotNull(productListContent);
@@ -92,11 +102,19 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test.Add
                 controller = new RemoveController();
             }
 
-            [TestCase(3)]
-            [TestCase(4)]
-            public void RemoveFromController_ShouldRemoveProductAndReturnTrue(int id)
+            [TestCase(12)]
+            [TestCase(11)]
+            public void Controller_RemoveFromController_ShouldRemoveProductAndReturnTrue(int id)
             {
-                Assert.IsInstanceOf<OkResult>(controller.Post(id).Result);
+                var result = controller.Post(id).Result;
+
+                if (result.GetType() == typeof(OkResult))
+                    Assert.Pass();
+                else
+                {
+                    var contentResult = (NegotiatedContentResult<string>)result;
+                    Assert.Fail(contentResult.Content);
+                }
             }
         }
 
@@ -118,7 +136,7 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test.Add
             }
 
             [Test]
-            public void EditFromController_ShouldEditProductsPropertiesAndReturnTrue()
+            public void Controller_EditFromController_ShouldEditProductsPropertiesAndReturnTrue()
             {
                 int id = 2;
                 byte[] arr;
@@ -131,7 +149,15 @@ namespace SuitSupply.CodingTest.ProductCatalog.WebApi.Test.Add
 
                 Product product = new Product { Id = id, Name = "Black suit111111", Photo = arr, Price = 33111.0, LastUpdated = DateTime.Now };
 
-                Assert.IsInstanceOf<OkResult>(controller.Post(id,product).Result);
+                var result = controller.Post(id, product).Result;
+
+                if (result.GetType() == typeof(OkResult))
+                    Assert.Pass();
+                else
+                {
+                    var contentResult = (NegotiatedContentResult<string>)result;
+                    Assert.Fail(contentResult.Content);
+                }
             }
         }
     }

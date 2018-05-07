@@ -140,7 +140,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2321</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2287/</IISUrl>
+          <IISUrl>http://localhost:2220/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

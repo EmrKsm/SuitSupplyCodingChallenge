@@ -7,3 +7,8 @@ To add database with some data, restore "../SuitSupplyCodingChallenge/Product.ba
 Logs will be located;
 Web API -> {your repository}\SuitSupplyCodingChallenge\SuitSupply.CodingTest.ProductCatalog\API\SuitSupply.CodingTest.ProductCatalog.WebApi\Logs
 Web UI -> {your repository}\SuitSupplyCodingChallenge\SuitSupply.CodingTest.ProductCatalog\UI\SuitSupply.CodingTest.ProductCatalog.WebUI\Logs
+
+For API Documentation; 
+https://app.swaggerhub.com/apis/SuitSupplyProductApi/ProductWebApi/1.0.0
+
+Make sure Web API runs on 2220 port and Web UI is on 2221.

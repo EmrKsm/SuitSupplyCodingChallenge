@@ -12,3 +12,6 @@ For API Documentation;
 https://app.swaggerhub.com/apis/SuitSupplyProductApi/ProductWebApi/1.0.0
 
 Make sure Web API runs on 2220 port and Web UI is on 2221.
+
+Git repository;
+https://github.com/EmrKsm/SuitSupplyCodingChallenge.git
